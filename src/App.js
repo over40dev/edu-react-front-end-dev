@@ -1,18 +1,19 @@
+// existing code
 import React, {useState} from 'react';
 import Nav from './Nav';
 import './App.css';
+// new code
+import ItemPage from './ItemPage';
+import {items} from './static-data';
 
-// modified code
+// existing code
 const App = () => {
-  // existing code
   const [activeTab,
     setActiveTab] = useState('items');
 
   return (
     <div className="App">
-      {/* existing code */}
       <Nav activeTab={activeTab} onTabChange={setActiveTab}/> 
-      {/* modified code */}
       <main className="App-content">
         <Content tab={activeTab}/>
       </main>
@@ -20,11 +21,12 @@ const App = () => {
   );
 };
 
-// new code
+// modified code
 const Content = ({tab}) => {
   switch (tab) {
     case 'items':
-      return <span>the items</span>;
+      // modified code
+      return <ItemPage items={items}/>;
     case 'cart':
       return <span>the cart</span>;
     default:
