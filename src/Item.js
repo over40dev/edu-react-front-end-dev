@@ -5,7 +5,7 @@ import './Item.css';
 
 // existing code
 const Item = ({item, onAddToCart}) => {
-  // 
+  return (
   <div className="Item">
     <div className="Item-left">
       <div className="Item-image"></div>
@@ -20,11 +20,14 @@ const Item = ({item, onAddToCart}) => {
       <div className="Item-price">
       ${item.price}
       </div>
-      <button className="Item-addToCart">
+      {/* modified code */}
+      {/* <button className="Item-addToCart" onClick={()=>onAddToCart(item)}> */}
+      <button className="Item-addToCart" onClick={onAddToCart}>
         Add to Cart
       </button>
     </div>
   </div>
+  );
 }
 
 // new code
