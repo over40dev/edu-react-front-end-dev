@@ -2,19 +2,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ItemPage.css';
+// new code
+import Item from './Item';
 
-// existing code
-function ItemPage({items}) {
+// modified code
+function ItemPage({items, onAddToCart}) {
   return (
     <ul className="ItemPage-items">
       {items.map(item => 
         <li key={item.id} className="ItemPage-item">
-          {item.name}
+          {/* modified code */}
+          <Item item={item} onAddToCart={() => onAddToCart(item)}/>
         </li>)}
     </ul>
   );
 }
-// new code
+// existing code
 ItemPage.propTypes = {
   items: PropTypes.array.isRequired
 };
