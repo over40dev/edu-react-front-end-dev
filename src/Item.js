@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Item.css';
 
-// existing code
-const Item = ({item, onAddToCart}) => {
+// modified code (replace onAddToCart with children Prop)
+const Item = ({item, children}) => {
   return (
   <div className="Item">
     <div className="Item-left">
@@ -20,20 +20,16 @@ const Item = ({item, onAddToCart}) => {
       <div className="Item-price">
       ${item.price}
       </div>
-      {/* modified code */}
-      {/* <button className="Item-addToCart" onClick={()=>onAddToCart(item)}> */}
-      <button className="Item-addToCart" onClick={onAddToCart}>
-        Add to Cart
-      </button>
+      {/* modified code (replace button with children Prop)*/}
+      {children}
     </div>
   </div>
   );
 }
 
-// new code
+// modified code (remove onAddToCart Prop)
 Item.propTypes = {
   item: PropTypes.object.isRequired,
-  onAddToCart: PropTypes.func.isRequired
 };
 
 // existing code
