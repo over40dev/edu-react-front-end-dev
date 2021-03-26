@@ -16,9 +16,10 @@ const summarizeCart = (cart) => {
     summary[item.id].count++;
 
     return summary;
-  }, {});
+  }, []);
 
-  return Object.values(groupItems);
+  return groupItems;
+  // return Object.values(groupItems);
 };
 
 // existing code (App Component)
